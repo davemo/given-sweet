@@ -4,7 +4,10 @@
   "description": "given dsl for sweet js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "sjs --module ./lib/given.js spec/sanity.js > ./spec/sanity-compiled.js",
+    "test": "node ./spec/sanity-compiled.js",
+    "posttest": "rm ./spec/sanity-compiled.js",
+    "output": "sjs --module ./lib/given.js spec/sanity.js"
   },
   "author": "dave@testdouble.com",
   "license": "MIT",
